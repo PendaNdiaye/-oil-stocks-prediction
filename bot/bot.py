@@ -49,7 +49,6 @@ def scrape(url):
     dates = format_date(dates)
     return titles, dates
 
-import os 
 def get_urls(base_url, pagination):
     #urls = [os.path.join(BASE_URL, str(page)) for page in range(1, pagination+1)]
     urls = [base_url + '/' + str(page) for page in range(1, pagination+1)]
