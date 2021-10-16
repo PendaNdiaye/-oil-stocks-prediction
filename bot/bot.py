@@ -13,7 +13,10 @@ class HeadersData:
         if 'page' in kwargs:
             page = kwargs.get('page')
             url = os.path.join(url, str(page))
-        driver = webdriver.Chrome(CHROMEDRIVER_PATH)
+        chrome_driver_path = CHROMEDRIVER_PATH
+        if 'chrome_driver_path' in kwargs:
+            chrome_driver_path = kwargs.get('chrome_driver_path')
+        driver = webdriver.Chrome(chrome_driver_path)
         driver.get(url)
         titles = self.__get_titles(driver)
         dates = self.__get_dates(driver)
