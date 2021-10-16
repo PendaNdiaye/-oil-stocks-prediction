@@ -37,13 +37,20 @@ class HeadersData:
     def current_scraper(self):
         return self.scrape()
 
-    def back_scraper(self, pagination_low, pagination_up):
+    def back_scraper(self, pagination_low, pagination_up, **kwargs):
+        if 'chrome_driver_path' in kwargs:
+            chrome_driver_path = kwargs.get('chrome_driver_path')
+        else:
+            chrome_driver_path = None
         lower = pagination_low
         upper = pagination_up
         history_data = []
         for page in range(lower, upper):
             print(page)
-            history_data += self.scrape(page=page)
+            if chrome_driver_path is None:
+                history_data += self.scrape(page=page)
+            else:
+                history_data += self.scrape(page=page, chrome_driver_path=chrome_driver_path)
             print("ok")
         return history_data
 
