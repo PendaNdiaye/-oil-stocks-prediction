@@ -1,6 +1,6 @@
 import pickle as pickle
 import os
-from settings import *
+
 
 REPO_DIR = os.path.dirname(os.path.abspath(''))
 
