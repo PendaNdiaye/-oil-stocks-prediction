@@ -17,8 +17,7 @@ def update_slash_depends_on_system(s):
     return context_s
 
     
-REPO_DIR = os.path.dirname(os.path.dirname(os.path.abspath('')))
-
+REPO_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 BASE_URL = "https://www.investing.com/crypto/bitcoin/news"
 DATA_DIR = os.path.join(REPO_DIR, update_slash_depends_on_system("data/"))
 FILE_PATH = os.path.join(DATA_DIR, update_slash_depends_on_system("articles/output.csv"))
@@ -30,4 +29,4 @@ with open(os.path.join(REPO_DIR, update_slash_depends_on_system("bot/bot/chrome.
     chrome_config = yaml.full_load(file)
     CHROMEDRIVER_PATH= chrome_config['CHROME_DRIVER']
 
-
+print(REPO_DIR)
