@@ -29,9 +29,4 @@ with open(os.path.join(REPO_DIR, update_slash_depends_on_system("bot/bot/chrome.
     chrome_config = yaml.full_load(file)
     CHROMEDRIVER_PATH= chrome_config['CHROME_DRIVER']
 
-<<<<<<< HEAD
-
 print(REPO_DIR)
-=======
-print(REPO_DIR)
->>>>>>> 58f180b36bfcf5afb13c1ba53527788e9ea65aae
