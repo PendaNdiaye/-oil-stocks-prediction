@@ -31,3 +31,4 @@ with open(os.path.join(REPO_DIR, update_slash_depends_on_system("bot/bot/chrome.
     CHROMEDRIVER_PATH= chrome_config['CHROME_DRIVER']
 
 
+print(REPO_DIR)
