@@ -3,9 +3,8 @@ from flask import Flask, jsonify, make_response, request
 import os 
 
 
-from model.model import predict
 from bot.bot import HeadersData
-
+from model.model import predict
 
 
 app = Flask(__name__)
