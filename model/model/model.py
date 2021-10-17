@@ -17,9 +17,16 @@ def predict(data):
     vectorizer = load_transformers_params(model='vec')
 
     p_features = vectorizer.fit_transform(features).toarray()
+    print(p_features.shape)
 
-    pca_features = 2500
-    p_features = np.hstack([p_features, np.zeros((2, pca_features - 462))])
+    
+
+    p_features_cols = p_features.shape[1]
+    #max_features_output = p_features.shape[1]
+    max_features_output = 2500
+
+
+    p_features = np.hstack([p_features, np.zeros((p_features.shape[0], max_features_output - p_features_cols))])
 
 
     # load pca 

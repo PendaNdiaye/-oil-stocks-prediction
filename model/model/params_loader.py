@@ -3,8 +3,7 @@ import os
 
 
 REPO_DIR = os.path.dirname(os.path.abspath(''))
-
-MODELS_PARAMS_DIR = os.path.join(REPO_DIR, "model/params")
+MODELS_PARAMS_DIR = os.path.join(REPO_DIR, "model/model/params")
 
 def load_transformers_params(model='lg'):
     
