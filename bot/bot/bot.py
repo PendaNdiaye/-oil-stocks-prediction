@@ -1,8 +1,8 @@
 import os
 from selenium import webdriver
 from datetime import datetime
-from .tools import normalize_date
-from .settings import *
+from tools import normalize_date
+from settings import *
 
 
 class HeadersData:
@@ -14,8 +14,6 @@ class HeadersData:
             page = kwargs.get('page')
             url = os.path.join(url, str(page))
         chrome_driver_path = CHROMEDRIVER_PATH
-        if 'chrome_driver_path' in kwargs:
-            chrome_driver_path = kwargs.get('chrome_driver_path')
         driver = webdriver.Chrome(chrome_driver_path)
         driver.get(url)
         titles = self.__get_titles(driver)
@@ -38,20 +36,11 @@ class HeadersData:
         return self.scrape()
 
     def back_scraper(self, pagination_low, pagination_up, **kwargs):
-        if 'chrome_driver_path' in kwargs:
-            chrome_driver_path = kwargs.get('chrome_driver_path')
-        else:
-            chrome_driver_path = None
         lower = pagination_low
         upper = pagination_up
         history_data = []
         for page in range(lower, upper):
-            print(page)
-            if chrome_driver_path is None:
-                history_data += self.scrape(page=page)
-            else:
-                history_data += self.scrape(page=page, chrome_driver_path=chrome_driver_path)
-            print("ok")
+            history_data += self.scrape(page=page)
         return history_data
 
 
