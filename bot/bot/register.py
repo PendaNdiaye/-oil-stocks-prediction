@@ -6,3 +6,6 @@ def register_news(titles, dates, file_path):
             csv_file.write(date)   
             csv_file.write("\n")
     return
+
+
+ #retraite les données   

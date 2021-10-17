@@ -17,8 +17,8 @@ def normalize_date(s):
     }
   if "ago" in s:
     #return  datetime.datetime.strptime(start_date, '%Y-%m-%d')
-    date = datetime.date.today()
-    return datetime.datetime.strftime(date, '%Y-%m-%d')
+    date = datetime.date.today() #récupère la date d'aujourd'hui
+    return datetime.datetime.strftime(date, '%Y-%m-%d') #transforme la date
   date_list_format = s.replace("-", "").replace(",", "").split(' ')[2:]
   date_list_format[0] = month[date_list_format[0]]
   m, d, y = date_list_format
