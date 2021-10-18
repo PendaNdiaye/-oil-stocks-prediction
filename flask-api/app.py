@@ -10,16 +10,19 @@ from model.model import predict
 app = Flask(__name__)
 
 
-@app.route('/score', methods=['POST'])
+#@app.route('/score', methods=['POST'])
+@app.route('/')
 def score():
-    features = request.json['pages']
-    pagination_low, pagination_up = features
-    headers_data = HeadersData()
-    daily_news = headers_data.current_scraper()
-    past_news = headers_data.back_scraper(pagination_low, pagination_up)
-    news = daily_news + past_news
-    preds = predict(news)
-    return make_response(jsonify({'score': preds.tolist()}))
+    features = request.get_json['pages']
+    #pagination_low, pagination_up = features
+    #headers_data = HeadersData()
+    #daily_news = headers_data.current_scraper()
+    #past_news = headers_data.back_scraper(pagination_low, pagination_up)
+    #news = daily_news + past_news
+    #preds = predict(news)
+    #return make_response(jsonify({'score': preds.tolist()}))
+
+    return 'hello penda'
 
 
 if __name__ == '__main__':
