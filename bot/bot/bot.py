@@ -1,8 +1,8 @@
 import os
 from selenium import webdriver
 from datetime import datetime
-from .tools import normalize_date
-from .settings import *
+from bot.tools import normalize_date
+from bot.settings import *
 
 
 class HeadersData:

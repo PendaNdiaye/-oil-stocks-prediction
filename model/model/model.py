@@ -23,11 +23,11 @@ def predict(data): #transforme les données,
 
     p_features_cols = p_features.shape[1]
     #max_features_output = p_features.shape[1]
-    max_features_output = 2500
+    max_features_output = 6873
 
-
+    print(p_features.shape)
     p_features = np.hstack([p_features, np.zeros((p_features.shape[0], max_features_output - p_features_cols))])
-
+    print(p_features.shape)
 
     # load pca 
     pca = load_transformers_params(model='pca')
