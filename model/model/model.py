@@ -6,14 +6,14 @@ from .params_loader import load_transformers_params
 
 import numpy as np
 
-def predict(data): #transforme les données, 
+def predict(data):
     # format data
     df = format_data(data)
 
-    # process data #processing
+    # process data
     features = [process_text(s) for s in df.daily_news.values]
 
-    # load vectorizer 
+    # load vectorizer
     vectorizer = load_transformers_params(model='vec')
 
     p_features = vectorizer.fit_transform(features).toarray()

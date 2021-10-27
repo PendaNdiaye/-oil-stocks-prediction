@@ -1,15 +1,15 @@
 import pandas as pd
 
-def list_of_dict_to_dataframe(l): #transforme le date en dictionnaire
+def list_of_dict_to_dataframe(l):
     return pd.DataFrame(l)
 
-def remove_cols(df, cols="scraping_date"): #transforme les colonnes
+def remove_cols(df, cols="scraping_date"):
     return df.drop(cols, axis=1)
 
-def rename_cols(df): #renomme les colonnes
+def rename_cols(df):
     return df.rename(columns={'new_header':'news', 'public_date': 'date'})
 
-def pivot_date(s): #pivote les dates
+def pivot_date(s):
     t = s.split('/')
     y, m, d = t
     return '/'.join([d, m, y])
@@ -19,7 +19,7 @@ def format_date(df, date_col='date'):
     df[date_col] = df[date_col].apply(lambda s: pivot_date(s))
     return df
 
-def aggregate(df): #agrege les données
+def aggregate(df):
     df['daily_news'] = df.groupby(['date'])['news'].transform(lambda x : ' '.join(x))
     df = df.drop('news', axis=1)
     df = df.drop_duplicates()

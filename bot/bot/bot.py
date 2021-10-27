@@ -10,11 +10,11 @@ class HeadersData:
 
     def scrape(self, **kwargs):
         url = self.base_url
-        if 'page' in kwargs: # ensemble des pages
-            page = kwargs.get('page') #récupére la page
-            url = os.path.join(url, str(page)) #joint un ou plusieurs composants de chemin
-        chrome_driver_path = CHROMEDRIVER_PATH #récupére le chemin
-        driver = webdriver.Chrome(chrome_driver_path) #ouvre le web
+        if 'page' in kwargs:
+            page = kwargs.get('page')
+            url = os.path.join(url, str(page))
+        chrome_driver_path = CHROMEDRIVER_PATH
+        driver = webdriver.Chrome(chrome_driver_path)
         driver.get(url)
         titles = self.__get_titles(driver)
         dates = self.__get_dates(driver)
@@ -45,10 +45,10 @@ class HeadersData:
 
 
     @staticmethod
-    def __get_titles(driver, limit=15): #récupére les titres
+    def __get_titles(driver, limit=15):
         return [s.text for s in driver.find_elements_by_class_name("title")[11:limit + 11]]
 
     @staticmethod
-    def __get_dates(driver, limit=15): #récupère les dates
+    def __get_dates(driver, limit=15):
         return [s.text for  s in driver.find_elements_by_xpath('.//span[@class = "date"]')[:limit]]
 
